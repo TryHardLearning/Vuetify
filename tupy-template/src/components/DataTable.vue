@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="d-flex flex-column" style="flex: 1;">
+  <v-container fluid class="d-flex flex-column" style="flex: 1; padding: 30px;">
     <v-row>
       <v-col cols="4" md="4">
         <v-text-field clearable label="Pesquisar"></v-text-field>
@@ -24,9 +24,12 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-row class="d-flex align-center justify-center" style="flex: 1;">
-      <v-col cols="12">
-        <v-data-table-virtual :headers="headers" :items="virtualBoats" height="100%" item-value="name"></v-data-table-virtual>
+    <v-row class="d-flex align-center justify-center" style="flex: 1; box-shadow: 2px 2px 6px #a9a9a9">
+      <v-col cols="12" style="">
+        <v-divider></v-divider>
+        <v-data-table-virtual :headers="headers" :items="virtualBoats" height="400px" width="720px"
+          item-value="name"></v-data-table-virtual>
+        <v-divider></v-divider>
       </v-col>
     </v-row>
   </v-container>
@@ -40,7 +43,6 @@ interface Header {
   title: string;
   align?: 'start' | 'end' | 'center';
   key: string;
-  color: string
 }
 
 @Options({
@@ -48,11 +50,11 @@ interface Header {
 })
 export default class DataTable extends Vue {
   headers: Header[] = [
-    { title: 'Boat Type', align: 'start', key: 'name', color: 'blue'},
-    { title: 'Speed (knots)', align: 'end', key: 'speed', color: 'blue' },
-    { title: 'Length (m)', align: 'end', key: 'length', color: 'blue' },
-    { title: 'Price ($)', align: 'end', key: 'price', color: 'blue' },
-    { title: 'Year', align: 'end', key: 'year', color: 'blue' }
+    { title: 'Boat Type', align: 'start', key: 'name' },
+    { title: 'Speed (knots)', align: 'end', key: 'speed' },
+    { title: 'Length (m)', align: 'end', key: 'length' },
+    { title: 'Price ($)', align: 'end', key: 'price' },
+    { title: 'Year', align: 'end', key: 'year' }
   ];
 
   boats = [
@@ -69,7 +71,7 @@ export default class DataTable extends Vue {
   ];
 
   get virtualBoats() {
-    return [...Array(10).keys()].map(i => {
+    return [...Array(100).keys()].map(i => {
       const boat = { ...this.boats[i % this.boats.length] };
       boat.name = `${boat.name} #${i}`;
       return boat;
