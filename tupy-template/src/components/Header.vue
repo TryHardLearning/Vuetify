@@ -1,7 +1,6 @@
 <template>
-    <v-toolbar color="#305b97">
-      <v-btn icon="mdi-chevron-left" @click.stop="toggleRail"></v-btn>
-      <v-toolbar-title>Tipo Cadastro</v-toolbar-title>
+    <v-toolbar color="#305b97" style="height: 75px !important; z-index: 1; display: flex; justify-content: center; padding-left: 45px; padding-right: 25px;">
+      <v-toolbar-title style="">Tipo Cadastro</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-badge color="error" content="2">
