@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="d-flex flex-column" style="flex: 1;">
     <v-row>
       <v-col cols="4" md="4">
         <v-text-field clearable label="Pesquisar"></v-text-field>
@@ -24,11 +24,9 @@
         </v-btn>
       </v-col>
     </v-row>
-  </v-container>
-  <v-container fluid class="d-flex justify-center align-center">
-    <v-row style="box-shadow: 1.5px 1.5px 4px #303030">
+    <v-row class="d-flex align-center justify-center" style="flex: 1;">
       <v-col cols="12">
-        <v-data-table-virtual :headers="headers" :items="virtualBoats" height="400px" width="720px" item-value="name"></v-data-table-virtual>
+        <v-data-table-virtual :headers="headers" :items="virtualBoats" height="100%" item-value="name"></v-data-table-virtual>
       </v-col>
     </v-row>
   </v-container>
