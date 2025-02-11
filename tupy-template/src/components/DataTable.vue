@@ -27,7 +27,7 @@
     <v-row class="d-flex align-center justify-center" style="flex: 1; box-shadow: 2px 2px 6px #a9a9a9">
       <v-col cols="12" style="">
         <v-divider></v-divider>
-        <v-data-table-virtual :headers="headers" :items="virtualBoats" height="340px" width="720px"
+        <v-data-table-virtual :headers="headers" :items="virtualBoats" height="50vh" width="720px"
           item-value="name"></v-data-table-virtual>
         <v-divider></v-divider>
         <v-pagination :length="4"></v-pagination>
