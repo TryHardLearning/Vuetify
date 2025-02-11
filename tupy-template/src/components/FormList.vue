@@ -1,41 +1,51 @@
 <template>
   <v-app>
-    <v-container fluid style="height: 100vh;">
-      <v-row no-gutters>
-        <v-col cols="12" width="100vw">
-          <Header />
-        </v-col>
-        <v-col cols="12" class="d-flex flex-column" style="overflow: auto; padding-top: 75px;">
-          <DataTable />
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-main fluid>
+      <Header :rail="rail" @toggle-rail="toggleRail" />
+      <div style="display: flex; flex-direction: row; justify-content: space-between;" >
+        <HeaderToolbar :rail="rail" :class="{ 'toolbar-expanded': !rail, 'toolbar-collapsed': rail }" />
+        <DataTable />
+      </div>
+    </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import Header from './Header.vue';
+import HeaderToolbar from './HeaderToolbar.vue';
 import DataTable from './DataTable.vue';
 
 @Options({
   name: 'FormList',
   components: {
     Header,
+    HeaderToolbar,
     DataTable
   }
 })
-export default class FormList extends Vue {}
+export default class FormList extends Vue {
+  rail = false;
+
+  toggleRail() {
+    this.rail = !this.rail;
+  }
+}
 </script>
 
 <style scoped>
-.v-container {
-  display: flex;
-  flex-direction: column;
+.toolbar-expanded {
+  height: 50px; /* Altura desejada para HeaderToolbar expandido */
+  transition: height 0.3s;
 }
-.v-col {
-  display: flex;
-  flex-direction: column;
+
+.toolbar-collapsed {
+  height: 25px; /* Altura desejada para HeaderToolbar reduzido */
+  transition: height 0.3s;
+}
+
+.data-table {
   flex: 1;
+  overflow-y: auto;
 }
 </style>
