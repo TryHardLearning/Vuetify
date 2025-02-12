@@ -4,7 +4,7 @@
             Cadastro</v-toolbar-title>
         <v-row>
             <v-col cols="4" md="4">
-                <v-text-field clearable label="Pesquisar"></v-text-field>
+                <v-text-field clearable label="Codigo do Produto"></v-text-field>
             </v-col>
             <v-col cols="4" md="4">
                 <v-date-input clearable label="Data da Ocorencia" variant="outlined"></v-date-input>
