@@ -1,35 +1,35 @@
 <template>
   <v-app>
     <v-main fluid>
-      <Header :rail="rail" @toggle-rail="toggleRail" />
+      <Header :rail="rail" />
       <div style="display: flex; flex-direction: row; justify-content: space-between;" >
         <HeaderToolbar :rail="rail" :class="{ 'toolbar-expanded': !rail, 'toolbar-collapsed': rail }" />
         <DataTable />
       </div>
+      <Footer />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import Header from './Header.vue';
-import HeaderToolbar from './HeaderToolbar.vue';
-import DataTable from './DataTable.vue';
+import Header from '@/components/Header.vue';
+import HeaderToolbar from '@/components/HeaderToolbar.vue';
+import DataTable from '@/components/DataTable.vue';
+import Footer from '@/components/Footer.vue';
 
 @Options({
   name: 'FormList',
   components: {
     Header,
     HeaderToolbar,
-    DataTable
+    DataTable,
+    Footer
   }
 })
 export default class FormList extends Vue {
   rail = false;
 
-  toggleRail() {
-    this.rail = !this.rail;
-  }
 }
 </script>
 
